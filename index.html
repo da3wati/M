@@ -1,0 +1,1047 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>دعوة مروى</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+    font-family:"Amiri",serif;
+    background:#2a1115;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* =========================
+   واجهة الفتح
+========================= */
+
+#opening{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    width:100%;
+    height:100dvh;
+    background-image:url("cover.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:opacity 1s ease, visibility 1s ease;
+}
+
+#opening::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(50,15,20,.08);
+    pointer-events:none;
+}
+
+.open-content{
+    position:relative;
+    z-index:2;
+    margin-top:-12vh;
+    text-align:center;
+}
+
+.open-text{
+    color:#fff8ed;
+    font-size:clamp(25px,7vw,42px);
+    font-weight:700;
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.55),
+        0 0 20px rgba(255,220,170,.35);
+    animation:pulseText 2.2s ease-in-out infinite;
+}
+
+.open-line{
+    width:90px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #d7ad62,
+        transparent
+    );
+    margin:12px auto;
+}
+
+.open-sub{
+    color:#f7e7c7;
+    font-size:15px;
+    opacity:.9;
+}
+
+@keyframes pulseText{
+    0%,100%{
+        transform:scale(1);
+        opacity:.9;
+    }
+
+    50%{
+        transform:scale(1.04);
+        opacity:1;
+    }
+}
+
+#opening.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+
+/* =========================
+   الدعوة
+========================= */
+
+#invitation{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+
+/* الخلفية ثابتة */
+.fixed-background{
+    position:fixed;
+    inset:0;
+    z-index:0;
+
+    background-image:
+        linear-gradient(
+            rgba(38,12,17,.12),
+            rgba(38,12,17,.12)
+        ),
+        url("background.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    pointer-events:none;
+}
+
+
+/* طبقة خفيفة */
+.background-overlay{
+    position:fixed;
+    inset:0;
+    z-index:1;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,244,225,.06),
+            rgba(55,16,22,.12)
+        );
+
+    pointer-events:none;
+}
+
+
+/* المحتوى */
+.content{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:650px;
+
+    margin:auto;
+
+    padding:
+        35px
+        17px
+        45px;
+}
+
+
+/* =========================
+   الصور
+========================= */
+
+.image-section{
+    width:100%;
+    margin:0 auto 28px;
+
+    opacity:0;
+    transform:translateY(45px);
+
+    animation:sectionIn 1.1s ease forwards;
+}
+
+.image-section img{
+    display:block;
+
+    width:100%;
+    height:auto;
+
+    border-radius:24px;
+
+    object-fit:cover;
+
+    box-shadow:
+        0 15px 40px rgba(20,0,0,.28),
+        0 2px 8px rgba(0,0,0,.15);
+
+    border:1px solid rgba(210,170,105,.45);
+}
+
+
+/* =========================
+   الأقسام العادية
+========================= */
+
+.section{
+    margin:28px 0;
+    padding:25px 18px;
+
+    border-radius:26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,248,236,.86),
+            rgba(245,225,198,.72)
+        );
+
+    border:1px solid rgba(178,127,58,.35);
+
+    box-shadow:
+        0 15px 40px rgba(30,5,10,.18),
+        inset 0 1px 0 rgba(255,255,255,.75);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    opacity:0;
+    transform:translateY(45px);
+
+    animation:sectionIn 1.1s ease forwards;
+}
+
+
+/* =========================
+   قسم القاعة الشفاف
+========================= */
+
+.venue-section{
+
+    margin:28px 0;
+    padding:18px;
+
+    border-radius:28px;
+
+    /*
+       شفافية عالية حتى تظهر الخلفية
+       الموجودة خلف القسم
+    */
+    background:rgba(255,248,236,.20);
+
+    border:1px solid rgba(255,226,179,.55);
+
+    box-shadow:
+        0 15px 40px rgba(35,5,10,.18),
+        inset 0 1px 0 rgba(255,255,255,.35);
+
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+
+    opacity:0;
+    transform:translateY(45px);
+
+    animation:sectionIn 1.1s ease forwards;
+}
+
+
+/* صورة القاعة */
+
+.hall-image{
+    width:100%;
+    display:block;
+
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    border:1px solid rgba(218,177,105,.65);
+
+    box-shadow:
+        0 12px 30px rgba(20,0,0,.25);
+
+    margin-bottom:20px;
+}
+
+
+/* عنوان القسم */
+
+.section-title{
+    color:#651d28;
+
+    font-size:27px;
+    font-weight:700;
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+    text-shadow:
+        0 1px 4px rgba(255,255,255,.45);
+}
+
+
+.gold-line{
+    width:75px;
+    height:2px;
+
+    margin:0 auto 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #b78b45,
+            transparent
+        );
+}
+
+
+/* =========================
+   الموقع
+========================= */
+
+.location-icon{
+    width:55px;
+    height:55px;
+
+    margin:0 auto 13px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(104,29,40,.88);
+
+    color:#f8dfae;
+
+    box-shadow:
+        0 7px 20px rgba(90,20,30,.25);
+}
+
+.location-icon svg{
+    width:27px;
+    height:27px;
+
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.8;
+}
+
+
+.location-name{
+    text-align:center;
+
+    color:#3b2020;
+
+    font-size:22px;
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+}
+
+
+.map-button{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:9px;
+
+    width:max-content;
+    max-width:100%;
+
+    margin:auto;
+
+    padding:12px 25px;
+
+    text-decoration:none;
+
+    color:#fffaf0;
+
+    background:#681d28;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    box-shadow:
+        0 8px 20px rgba(70,10,20,.25);
+
+    transition:.25s ease;
+}
+
+.map-button:active{
+    transform:scale(.96);
+}
+
+.map-button svg{
+    width:20px;
+    height:20px;
+
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.8;
+}
+
+
+/* =========================
+   العداد
+========================= */
+
+.countdown{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+
+    direction:ltr;
+}
+
+.time-box{
+    padding:13px 5px 10px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.8),
+            rgba(238,211,176,.65)
+        );
+
+    border:1px solid rgba(170,120,55,.35);
+
+    text-align:center;
+}
+
+.time-number{
+    display:block;
+
+    color:#641c28;
+
+    font-size:29px;
+
+    font-weight:700;
+
+    line-height:1.1;
+}
+
+.time-label{
+    display:block;
+
+    color:#60403c;
+
+    font-size:13px;
+
+    margin-top:5px;
+
+    direction:rtl;
+}
+
+
+/* =========================
+   الصور الأخيرة
+========================= */
+
+.full-image-section{
+    margin:30px 0;
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    animation:
+        sectionIn 1.1s ease forwards;
+}
+
+.full-image-section img{
+    width:100%;
+
+    display:block;
+
+    border-radius:24px;
+
+    border:1px solid rgba(184,137,71,.4);
+
+    box-shadow:
+        0 15px 40px rgba(20,0,0,.25);
+}
+
+
+/* =========================
+   النهاية
+========================= */
+
+.footer{
+    text-align:center;
+
+    padding:25px 10px 45px;
+
+    color:#fff6e8;
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    animation:
+        sectionIn 1.2s ease forwards;
+}
+
+.footer-line{
+    width:100px;
+    height:1px;
+
+    margin:0 auto 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d5aa65,
+            transparent
+        );
+}
+
+.footer-text{
+    font-size:22px;
+
+    line-height:1.8;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.45);
+}
+
+.footer-heart{
+    color:#d8ad6b;
+
+    font-size:24px;
+
+    margin-top:7px;
+}
+
+
+/* =========================
+   الحركة
+========================= */
+
+@keyframes sectionIn{
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================
+   الهاتف
+========================= */
+
+@media(max-width:480px){
+
+    .content{
+        padding:
+            22px
+            13px
+            35px;
+    }
+
+    .section,
+    .venue-section{
+        padding:18px 13px;
+        border-radius:22px;
+    }
+
+    .hall-image{
+        height:190px;
+        border-radius:18px;
+    }
+
+    .section-title{
+        font-size:24px;
+    }
+
+    .location-name{
+        font-size:20px;
+    }
+
+    .time-number{
+        font-size:25px;
+    }
+
+    .time-label{
+        font-size:12px;
+    }
+
+    .footer-text{
+        font-size:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     واجهة الفتح
+========================= -->
+
+<div id="opening">
+
+    <div class="open-content">
+
+        <div class="open-text">
+            اضغط للفتح
+        </div>
+
+        <div class="open-line"></div>
+
+        <div class="open-sub">
+            لفتح الدعوة
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     الدعوة
+========================= -->
+
+<main id="invitation">
+
+    <!-- الخلفية الثابتة -->
+    <div class="fixed-background"></div>
+
+    <div class="background-overlay"></div>
+
+
+    <div class="content">
+
+
+        <!-- الصورة الأولى -->
+
+        <div class="image-section">
+
+            <img
+                src="photo1.jpg"
+                alt="دعوة مروى"
+            >
+
+        </div>
+
+
+        <!-- =====================
+             قسم القاعة
+        ====================== -->
+
+        <section class="venue-section">
+
+
+            <!-- صورة القاعة -->
+
+            <img
+                class="hall-image"
+                src="hall.jpg"
+                alt="قاعة الحفلات في فندق Lynatel Palace"
+            >
+
+
+            <div class="location-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                        d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="9"
+                        r="2.2"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <h2 class="section-title">
+                موقع الحفل
+            </h2>
+
+
+            <div class="gold-line"></div>
+
+
+            <div class="location-name">
+
+                قاعة الحفلات في فندق
+
+                <br>
+
+                <strong>
+                    Lynatel Palace
+                </strong>
+
+            </div>
+
+
+            <a
+                class="map-button"
+                href="https://maps.app.goo.gl/E7WrFZtmhDEZqNt47"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                        d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="9"
+                        r="2.2"
+                    />
+
+                </svg>
+
+                فتح الموقع
+
+            </a>
+
+        </section>
+
+
+        <!-- =====================
+             العداد
+        ====================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                الوقت المتبقي
+            </h2>
+
+            <div class="gold-line"></div>
+
+
+            <div
+                class="countdown"
+                id="countdown"
+            >
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                        id="days"
+                    >
+                        00
+                    </span>
+
+                    <span class="time-label">
+                        يوم
+                    </span>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                        id="hours"
+                    >
+                        00
+                    </span>
+
+                    <span class="time-label">
+                        ساعة
+                    </span>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                        id="minutes"
+                    >
+                        00
+                    </span>
+
+                    <span class="time-label">
+                        دقيقة
+                    </span>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                        id="seconds"
+                    >
+                        00
+                    </span>
+
+                    <span class="time-label">
+                        ثانية
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================
+             الملاحظات
+        ====================== -->
+
+        <div class="full-image-section">
+
+            <img
+                src="notes.jpg"
+                alt="ملاحظات"
+            >
+
+        </div>
+
+
+        <!-- =====================
+             الصورة الأخيرة
+        ====================== -->
+
+        <div class="full-image-section">
+
+            <img
+                src="final.jpg"
+                alt="تفاصيل الدعوة"
+            >
+
+        </div>
+
+
+        <!-- =====================
+             النهاية
+        ====================== -->
+
+        <footer class="footer">
+
+            <div class="footer-line"></div>
+
+            <div class="footer-text">
+
+                صنع بكل حب لأميرتنا مروى
+
+            </div>
+
+            <div class="footer-heart">
+                ♡
+            </div>
+
+        </footer>
+
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     الموسيقى
+========================= -->
+
+<audio
+    id="music"
+    src="music.mp3"
+    loop
+    preload="auto"
+></audio>
+
+
+<script>
+
+/* =========================
+   فتح الدعوة + الموسيقى
+========================= */
+
+const opening =
+    document.getElementById("opening");
+
+const music =
+    document.getElementById("music");
+
+
+opening.addEventListener(
+    "click",
+    function(){
+
+        opening.classList.add("hide");
+
+        music.volume = 0.75;
+
+        music.play().catch(
+            function(error){
+                console.log(
+                    "تعذر تشغيل الموسيقى:",
+                    error
+                );
+            }
+        );
+
+    }
+);
+
+
+/* =========================
+   العداد
+========================= */
+
+const weddingDate =
+    new Date(
+        "2026-10-28T18:00:00+01:00"
+    ).getTime();
+
+
+function updateCountdown(){
+
+    const now =
+        new Date().getTime();
+
+    const difference =
+        weddingDate - now;
+
+
+    if(difference <= 0){
+
+        document.getElementById("days")
+            .textContent = "00";
+
+        document.getElementById("hours")
+            .textContent = "00";
+
+        document.getElementById("minutes")
+            .textContent = "00";
+
+        document.getElementById("seconds")
+            .textContent = "00";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (difference %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (difference %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (difference %
+            (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("days")
+        .textContent =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById("hours")
+        .textContent =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes")
+        .textContent =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds")
+        .textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+</script>
+
+</body>
+</html>
+```
