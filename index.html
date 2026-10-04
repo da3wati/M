@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -10,6 +9,7 @@
 
 <title>دعوة مروى</title>
 
+
 <!-- =========================
      صورة معاينة الرابط
 ========================= -->
@@ -20,10 +20,19 @@
       content="دعوتكم لحضور أجمل مناسبة">
 
 <meta property="og:image"
-      content="https://da3wati.github.io/M-B/preview.jpg">
+      content="https://da3wati.github.io/M/preview.jpg">
+
+<meta property="og:image:width"
+      content="1200">
+
+<meta property="og:image:height"
+      content="630">
+
+<meta property="og:image:type"
+      content="image/jpeg">
 
 <meta property="og:url"
-      content="https://da3wati.github.io/M-B/">
+      content="https://da3wati.github.io/M/">
 
 <meta property="og:type"
       content="website">
@@ -32,7 +41,9 @@
       content="دعوة مروى">
 
 
-<!-- معاينة Twitter / X -->
+<!-- =========================
+     Twitter / X
+========================= -->
 
 <meta name="twitter:card"
       content="summary_large_image">
@@ -44,7 +55,7 @@
       content="دعوتكم لحضور أجمل مناسبة">
 
 <meta name="twitter:image"
-      content="https://da3wati.github.io/M-B/preview.jpg">
+      content="https://da3wati.github.io/M/preview.jpg">
 
 
 <style>
@@ -78,6 +89,7 @@ body{
     position:fixed;
     inset:0;
     z-index:9999;
+
     width:100%;
     height:100dvh;
 
@@ -87,6 +99,7 @@ body{
     background-position:center;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
@@ -190,7 +203,9 @@ body{
 }
 
 
-/* الخلفية ثابتة */
+/* =========================
+   الخلفية الثابتة
+========================= */
 
 .fixed-background{
 
@@ -219,7 +234,9 @@ body{
 }
 
 
-/* طبقة خفيفة */
+/* =========================
+   طبقة خفيفة
+========================= */
 
 .background-overlay{
 
@@ -241,7 +258,9 @@ body{
 }
 
 
-/* المحتوى */
+/* =========================
+   المحتوى
+========================= */
 
 .content{
 
@@ -263,7 +282,7 @@ body{
 
 
 /* =========================
-   الصور
+   الصورة الأولى
 ========================= */
 
 .image-section{
@@ -295,7 +314,9 @@ body{
     object-fit:cover;
 
     box-shadow:
+
         0 15px 40px rgba(20,0,0,.28),
+
         0 2px 8px rgba(0,0,0,.15);
 
     border:
@@ -304,7 +325,7 @@ body{
 
 
 /* =========================
-   قسم القاعة
+   قسم القاعة الشفاف
 ========================= */
 
 .venue-section{
@@ -344,7 +365,9 @@ body{
 }
 
 
-/* صورة القاعة */
+/* =========================
+   صورة القاعة
+========================= */
 
 .hall-image{
 
@@ -368,7 +391,9 @@ body{
 }
 
 
-/* عنوان القسم */
+/* =========================
+   عنوان القسم
+========================= */
 
 .section-title{
 
@@ -717,8 +742,6 @@ body{
 
 <main id="invitation">
 
-    <!-- الخلفية الثابتة -->
-
     <div class="fixed-background"></div>
 
     <div class="background-overlay"></div>
@@ -727,7 +750,9 @@ body{
     <div class="content">
 
 
-        <!-- الصورة الأولى -->
+        <!-- =====================
+             الصورة الأولى
+        ====================== -->
 
         <div class="image-section">
 
@@ -745,8 +770,6 @@ body{
 
         <section class="venue-section">
 
-
-            <!-- صورة القاعة -->
 
             <img
                 class="hall-image"
@@ -928,4 +951,3 @@ opening.addEventListener(
 
 </body>
 </html>
-```
