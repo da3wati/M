@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 
 <meta charset="UTF-8">
@@ -11,7 +12,7 @@
 
 
 <!-- =========================
-     صورة معاينة الرابط
+     OPEN GRAPH - صورة المعاينة
 ========================= -->
 
 <meta property="og:title" content="دعوة مروى">
@@ -20,16 +21,19 @@
       content="دعوتكم لحضور أجمل مناسبة">
 
 <meta property="og:image"
-      content="https://da3wati.github.io/M/preview.jpg">
+      content="https://da3wati.github.io/M/preview-maryou.jpg">
+
+<meta property="og:image:secure_url"
+      content="https://da3wati.github.io/M/preview-maryou.jpg">
+
+<meta property="og:image:type"
+      content="image/jpeg">
 
 <meta property="og:image:width"
       content="1200">
 
 <meta property="og:image:height"
       content="630">
-
-<meta property="og:image:type"
-      content="image/jpeg">
 
 <meta property="og:url"
       content="https://da3wati.github.io/M/">
@@ -42,7 +46,7 @@
 
 
 <!-- =========================
-     Twitter / X
+     TWITTER / X
 ========================= -->
 
 <meta name="twitter:card"
@@ -55,7 +59,7 @@
       content="دعوتكم لحضور أجمل مناسبة">
 
 <meta name="twitter:image"
-      content="https://da3wati.github.io/M/preview.jpg">
+      content="https://da3wati.github.io/M/preview-maryou.jpg">
 
 
 <style>
@@ -69,10 +73,13 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
     width:100%;
     min-height:100%;
+
     font-family:"Amiri",serif;
+
     background:#2a1115;
 }
 
@@ -86,21 +93,27 @@ body{
 ========================= */
 
 #opening{
+
     position:fixed;
+
     inset:0;
+
     z-index:9999;
 
     width:100%;
+
     height:100dvh;
 
     background-image:url("cover.jpg");
 
     background-size:cover;
+
     background-position:center;
 
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
     cursor:pointer;
@@ -111,9 +124,11 @@ body{
 }
 
 #opening::after{
+
     content:"";
 
     position:absolute;
+
     inset:0;
 
     background:rgba(50,15,20,.08);
@@ -122,7 +137,9 @@ body{
 }
 
 .open-content{
+
     position:relative;
+
     z-index:2;
 
     margin-top:-12vh;
@@ -131,6 +148,7 @@ body{
 }
 
 .open-text{
+
     color:#fff8ed;
 
     font-size:
@@ -139,18 +157,24 @@ body{
     font-weight:700;
 
     text-shadow:
+
         0 2px 8px rgba(0,0,0,.55),
-        0 0 20px rgba(255,220,170,.35);
+
+        0 0 20px
+        rgba(255,220,170,.35);
 
     animation:
         pulseText 2.2s ease-in-out infinite;
 }
 
 .open-line{
+
     width:90px;
+
     height:1px;
 
     background:
+
         linear-gradient(
             90deg,
             transparent,
@@ -162,6 +186,7 @@ body{
 }
 
 .open-sub{
+
     color:#f7e7c7;
 
     font-size:15px;
@@ -172,20 +197,27 @@ body{
 @keyframes pulseText{
 
     0%,100%{
+
         transform:scale(1);
+
         opacity:.9;
     }
 
     50%{
+
         transform:scale(1.04);
+
         opacity:1;
     }
 
 }
 
 #opening.hide{
+
     opacity:0;
+
     visibility:hidden;
+
     pointer-events:none;
 }
 
@@ -195,6 +227,7 @@ body{
 ========================= */
 
 #invitation{
+
     position:relative;
 
     min-height:100vh;
@@ -315,17 +348,20 @@ body{
 
     box-shadow:
 
-        0 15px 40px rgba(20,0,0,.28),
+        0 15px 40px
+        rgba(20,0,0,.28),
 
-        0 2px 8px rgba(0,0,0,.15);
+        0 2px 8px
+        rgba(0,0,0,.15);
 
     border:
-        1px solid rgba(210,170,105,.45);
+        1px solid
+        rgba(210,170,105,.45);
 }
 
 
 /* =========================
-   قسم القاعة الشفاف
+   قسم القاعة
 ========================= */
 
 .venue-section{
@@ -340,11 +376,13 @@ body{
         rgba(255,248,236,.20);
 
     border:
-        1px solid rgba(255,226,179,.55);
+        1px solid
+        rgba(255,226,179,.55);
 
     box-shadow:
 
-        0 15px 40px rgba(35,5,10,.18),
+        0 15px 40px
+        rgba(35,5,10,.18),
 
         inset 0 1px 0
         rgba(255,255,255,.35);
@@ -382,10 +420,12 @@ body{
     border-radius:20px;
 
     border:
-        1px solid rgba(218,177,105,.65);
+        1px solid
+        rgba(218,177,105,.65);
 
     box-shadow:
-        0 12px 30px rgba(20,0,0,.25);
+        0 12px 30px
+        rgba(20,0,0,.25);
 
     margin-bottom:20px;
 }
@@ -573,7 +613,8 @@ body{
     border-radius:24px;
 
     border:
-        1px solid rgba(184,137,71,.4);
+        1px solid
+        rgba(184,137,71,.4);
 
     box-shadow:
         0 15px 40px
@@ -710,6 +751,7 @@ body{
 
 </head>
 
+
 <body>
 
 
@@ -741,6 +783,7 @@ body{
 ========================= -->
 
 <main id="invitation">
+
 
     <div class="fixed-background"></div>
 
